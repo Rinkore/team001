@@ -1,0 +1,86 @@
+.login-box{
+    width: 600px;
+    box-shadow: -12px 11px 11px 7px #575f6a !important;
+
+    position: absolute;
+    left: 600px;
+    top:200px;
+    z-index: 9;
+    opacity:.8;
+
+
+}
+.btn-login{
+    width:100%;
+}
+.bg{
+    background-image: url("../image/bg.jpg");
+    width:100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    position:absolute;
+    top:0;
+}
+.login-box:before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    filter:blur(20px);
+    background-image:url("../image/bg.jpg");
+    z-index:-3;
+}
+.login-box.title{
+    text-align: center;
+}
+.gg{
+    text-align: center;
+}
+span{
+    padding:5px;
+
+
+}
+
+.effect01{
+   color:#fefefe;
+    font-weight: bolder;
+    font-size: 20px;
+    text-shadow:
+            -3px 1px 0px #c0c0c0,
+            0px 2px 0px #b0b0b0,
+            0px 3px 0px #a0a0a0,
+            0px 4px 0px #909090,
+            0px 5px 10px rgba(0,0,0,0.6);
+}
+
+.colortext{
+    font-size: 30px;
+    background: linear-gradient(to right,red,blue);
+    -webkit-background-clip: text;
+    color:transparent;
+
+}
+
+.light{
+    font-size:30px;
+    color:#fefefe;
+    text-shadow: 0 0 0.5em #0ae642, 0 0 0.2em #5c5c5c;
+}
+
+.el-select{
+    width:50%;
+}
+.el-input{
+    width:50%;
+}
+
+.container{
+    width:1400px;
+    margin-left: auto;
+    margin-top: auto;
+    margin-left: auto;
+}

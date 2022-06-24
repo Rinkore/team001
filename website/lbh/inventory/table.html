@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>库存-基础信息</title>
+    <link rel="stylesheet" href="../../lib/elementui/element.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+
+
+</head>
+
+<body>
+   <div id="app" class="container">
+       <el-row>
+           <el-breadcrumb separator="/">
+               <el-breadcrumb-item :to="{path:'/'}">首页</el-breadcrumb-item>
+               <el-breadcrumb-item>库存信息</el-breadcrumb-item>
+               <el-breadcrumb-item>详情</el-breadcrumb-item>
+           </el-breadcrumb>
+       </el-row>
+       <el-row>
+           <el-form label="90px">
+               <el-row>
+                   <el-col :span="12">
+                       <el-form-item label="商品名称">
+                           <el-input></el-input>
+                       </el-form-item>
+                   </el-col>
+                   <el-col :span="12">
+                       <el-form-item label="库存状态">
+                           <el-select>
+                               <el-option label="有库存" value="true"></el-option>
+
+                               <el-option label="待补货" value="false"></el-option>
+                           </el-select>
+                       </el-form-item>
+                   </el-col>
+               </el-row>
+               <el-row>
+                   <el-col :span="12">
+                       <el-form-item label="入库年份">
+                           <el-select>
+                               <el-option v-for="year in years"
+                                          :label="year":value="year"></el-option>
+                           </el-select>
+                       </el-form-item>
+                   </el-col>
+                   <el-col :span="12">
+                       <el-form-item>
+                           <el-button type="danger">查询</el-button>
+                       </el-form-item>
+
+                   </el-col>
+               </el-row>
+           </el-form>
+       </el-row>
+       <el-row>
+           <el-button-group>
+               <el-button type="warning">录入</el-button>
+               <el-button type="success">选项</el-button>
+           </el-button-group>
+
+           <el-table :data="list" border stripe>
+               <el-table-column prop="name" label="商品名称">
+
+               </el-table-column>
+               <el-table-column prop="price" label="价格">
+
+               </el-table-column>
+               <el-table-column prop="quantity" label="商品数量">
+
+               </el-table-column>
+               <el-table-column prop="year" label="入库年份">
+
+               </el-table-column>
+               <el-table-column prop="month" label="入库月份">
+
+               </el-table-column>
+               <el-table-column prop="date" label="入库日期">
+
+               </el-table-column>
+               <el-table-column prop="isClosed" label="库存状态">
+
+               </el-table-column>
+               <el-table-column label="操作">
+                   <teamplate slot-scope="scope">
+                        <el-button type="success" @click="btnEditClick(scope.row)">编辑</el-button>
+                   </teamplate>
+               </el-table-column>
+
+           </el-table>
+       </el-row>
+
+<el-dialog
+    title="详细信息编辑"
+    :visible.sync="info.isShow"
+    width="30%">
+    <el-form label-width="90px">
+        <el-form-item label="商品名称">
+            <el-input v-model="info.product.name"></el-input>
+        </el-form-item>
+        <el-form-item label="商品价格">
+            <el-input v-model="info.product.price"></el-input>
+
+        </el-form-item>
+        <el-form-item label="商品数量">
+            <el-input v-model="info.product.quantity"></el-input>
+        </el-form-item>
+        <el-form-item label="商品年份">
+            <el-input v-model="info.product.year"></el-input>
+        </el-form-item>
+        <el-form-item label="商品月份">
+            <el-input v-model="info.product.month"></el-input>
+        </el-form-item>
+        <el-form-item label="商品日期">
+            <el-input v-model="info.product.date"></el-input>
+        </el-form-item>
+        <el-form-item label="库存状态">
+            <el-select>
+                <el-option label="有库存" value="true"></el-option>
+
+                <el-option label="待补货" value="false"></el-option>
+            </el-select>
+        </el-form-item>
+    </el-form>
+</el-dialog>
+
+
+
+   </div>
+
+</body>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/elementui/element.js"></script>
+<script src="../../lib/jquery.js"></script>
+<script src="../../lib/mock.js"></script>
+<script src="../mock/dict.js"></script>
+<script src="../mock/product.js"></script>
+<script>
+
+    new Vue({
+        el:'#app',
+        data:{
+            list:[],
+            years:[],
+            info:{
+                isShow:false,
+                product:{
+                    name:'',
+                    price:'',
+                    month:'',
+                    year:'',
+                    date:'',
+                    quantity:'',
+                    isClosed:''
+
+                }
+            }
+        }, mounted:function(){
+            this.initTabale();
+            this.initSelect();
+        },methods:{
+            initTabale:function(){
+                let _this=this;
+
+                $.ajax({
+                    url:'http://test.org/pro/list',
+                    method:'get',
+                    dataType:'json',
+                    success:function(data){
+                        _this.list=data;
+                    }
+                })
+            },initSelect:function(){
+                this.years=years;
+            },btnEditClick:function(row){
+                this.info.isShow=true;
+                this.info.product.name=row.name;
+                this.info.product.year=row.year;
+                this.info.product.price=row.price;
+                this.info.product.date=row.date;
+                this.info.product.month=row.month;
+                this.info.product.quantity=row.quantity;
+            }
+        }
+    })
+
+
+
+
+
+
+</script>

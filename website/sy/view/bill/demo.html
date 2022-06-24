@@ -1,0 +1,70 @@
+ <!-- <el-form label-width="90px">
+        <el-row>
+            <el-col :span="12">
+                <el-form-item label="商品名称">
+                    <el-input></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="订单状态">
+                    <el-select>
+                        <el-option label="待支付" value="false"></el-option>
+                        <el-option label="已支付" value="true"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+        </el-row>
+
+        <el-row>
+            <el-col :span="12">
+                <el-form-item label="年份">
+                    <el-select>
+                        <el-option v-for="year in years" 
+                                :label="year" :value="year"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item>
+                    <el-button type="danger">搜索</el-button>
+                </el-form-item>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-table :data="list" border stripe>
+                <el-table-column prop="name" label="商品名称"></el-table-column>
+                <el-table-column prop="price" label="订单价格"></el-table-column>
+                <el-table-column prop="quantity" label="订单数量"></el-table-column>
+                <el-table-column prop="year" label="年份"></el-table-column>
+                <el-table-column prop="isClosed" label="订单状态"></el-table-column>
+            </el-table>
+        </el-row>
+
+    </el-form>  -->
+
+
+
+    // data:{
+        //     list:[],
+        //     msg:'hello',
+        //     years:[]
+        // },mounted:function(){
+        //     this.initTabale();
+        //     this.initSelect();
+        // },methods:{
+        //     initTabale:function(){
+        //         let _this = this;
+
+        //         $.ajax({
+        //             url:'http://test.org/pro/list',
+        //             method:'get',
+        //             dataType:'json',
+        //             success: function(data){
+        //                 _this.list = data;
+        //             }
+
+        //         })
+        //     },initSelect:function(){
+        //         this.years=years;
+        //     }
+        // }

@@ -1,0 +1,21 @@
+.smartchart{
+    height: 250px;
+    border:1.5px;
+    border-color: #ebb563;
+    background-color: #ebb563;
+    opacity:  .6;
+    margin-top:10px;
+}
+.bg{
+    background-color: darkblue;
+    color:white;
+}
+
+.bigchart{
+    height: 500px;
+    border:1.5px;
+    border-color: #ebb563;
+    background-color: #ebb563;
+
+    margin-top:10px;
+}

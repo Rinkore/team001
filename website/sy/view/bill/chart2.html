@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局</title>
+    <link rel="stylesheet" href="/website/lib/elementui/element.css">
+    <link rel="stylesheet" href="/website/sy/css/chart.css">
+</head>
+<body class="bg">
+<div id="app">
+
+    <el-row>
+        title
+    </el-row>
+
+    <el-row :gutter="20">
+        <el-col :span="6">
+            <div class="small-box"></div>
+            <div class="small-box"></div>
+        </el-col>
+        <el-col :span="12">
+            <div class="center-box"></div>
+        </el-col>
+        <el-col :span="6">
+            <div class="small-box"></div>
+            <div class="small-box"></div>
+        </el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+        <el-col :span="6">
+            <div class="small-box"></div>
+        </el-col>
+        <el-col :span="6">
+            <div class="small-box"></div>
+        </el-col>
+        <el-col :span="6">
+            <div class="small-box"></div>
+        </el-col>
+        <el-col :span="6">
+            <div class="small-box"></div>
+        </el-col>
+    </el-row>
+
+    </div>
+        
+</body>
+<script src="/website/lib/vue.js"></script>
+<script src="/website/lib/elementui/element.js"></script>
+<script>
+    new Vue({
+        el:"#app"
+    })
+        
+</script>
+</html>

@@ -1,0 +1,20 @@
+.bg{
+    background-color: #22284A;
+    color: white;
+}
+.small-box{
+    height: 260px;
+    border: 1px;
+    border-radius: 20px;
+    background-color:cadetblue;
+    opacity: .6;
+    margin-top: 10px;
+}
+.center-box{
+    height: 530px;
+    border: 1px;
+    border-radius: 20px;
+    background-color: blueviolet;
+    margin-top: 10px;
+}
+

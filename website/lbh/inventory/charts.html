@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复合表</title>
+    <link rel="stylesheet" href="../../lib/elementui/element.css">
+    <link rel="stylesheet" href="../css/chart.css">
+
+
+</head>
+<body class="bg">
+<div id="app">
+<el-row>题目</el-row>
+<el-row :gutter="20">
+    <el-col :span="6">
+        <div class="smartchart"></div>
+        <div class="smartchart"></div>
+    </el-col>
+    <el-col :span="12">
+<div class="bigchart"></div>
+    </el-col>
+    <el-col :span="6">
+        <div class="smartchart"></div>
+        <div class="smartchart"></div>
+    </el-col>
+</el-row>
+<el-row :gutter="20">
+    <el-col :span="6"><div class="smartchart"></div></el-col>
+    <el-col :span="6"><div class="smartchart"></div></el-col>
+    <el-col :span="6"><div class="smartchart"></div></el-col>
+    <el-col :span="6"><div class="smartchart"></div></el-col>
+</el-row>
+</div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/elementui/element.js"></script>
+<script>
+    new Vue({
+        el:'#app'
+    })
+</script>
+</html>

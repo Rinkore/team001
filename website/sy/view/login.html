@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登陆页面</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg">
+    <div id="app">
+        <el-card class="login-box">
+            <div slot="header" class="title">
+                <span class="effect01">信息采集系统-登录</span>
+            </div>
+            <el-form label-width="90px">
+                <el-form-item class="effect01" label="用户名">
+                    <el-input v-model="user.username"></el-input>
+                </el-form-item>
+                <el-form-item class="effect01" label="密码">
+                    <el-input v-model="user.password" type="password"></el-input>
+                </el-form-item>
+                <el-form-item >
+                    <el-col :offset="8" :span="8">
+                        <el-button type="success" class="btn-login" @click="btnLoginClick">
+                            登录
+                        </el-button>
+                    
+
+                    </el-col:offset>
+                </el-form-item>
+                <el-form-item class="ale" v-show="isErr">
+                    {{loginErr}}
+                </el-form-item>
+
+            </el-form>
+            
+        </el-card>
+    </div>
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../../lib/mock.js"></script>
+<script src="../../lib/jquery.js"></script>
+<script src="../mock/user.js"></script>
+<script>
+    let userForServer = [
+        {
+            username:'admin',
+            password:'123'
+        },{
+            username:'text',
+            password:'text'
+        }
+    ];
+    new Vue({
+        el:'#app',
+        data:{
+            user:{
+                username:'',
+                password:''
+            },
+            loginErr:'用户名或密码错误!',
+            isErr:false
+        },methods:{
+            btnLoginClick:function(){
+                let _this = this;
+                $.ajax({
+                    url:'http://test.org/user/list',
+                    method:'get',
+                    dataType:'json',
+                    success:function(data){
+                        let flag= _this.checkUser(data);
+                        if(flag){
+                            window.location.href="index.html";
+                        }else{
+                            _this.isErr = true;
+
+                        }
+                    }
+
+                })
+            },checkUser:function(data){
+                let _this = this;
+                let current = userForServer.find(function(item){
+                    return item.username == _this.user.username
+                        && item.password == _this.user.password;
+                })
+                return current;
+            }
+
+        }
+    })
+</script>
+</html>

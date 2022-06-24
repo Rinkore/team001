@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登陆页面</title>
+    <link rel="stylesheet" href="../../../lib/elementui/element.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="../../../lib/elementui/element.js"></script>
+    <script src="../../../lib/mock.js"></script>
+    <script src="../../../lib/jquery.js"></script>
+    <script src="../../mock/client.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+
+<body class="bg">
+    <div id="app">
+        <el-row>
+
+            <el-table :data="list" border stripe>
+    
+                <el-table-column prop="name" label="职工姓名">
+                </el-table-column>
+                <el-table-column prop="task" label="任务数量">
+                </el-table-column>
+                <el-table-column prop="date" label="入职时间">
+                </el-table-column>
+                <el-table-column prop="isHaveJob" label="是否在岗">
+                </el-table-column>
+    
+            </el-table>
+    
+        </el-row>
+    </div>
+    
+    
+</body>
+
+<script>
+    export default {
+    getOption,
+    getOptionForPie
+}
+    new Vue({
+        el:"#app",
+        data:{
+            list:[],
+            msg:'hello'
+        },mounted:function(){
+            this.initTabalet();
+        },methods:{
+            initTabalet:function(){
+                let _this=this;
+                $.ajax({
+                    url:'http://test.org/client/list',
+                    method:'get',
+                    dataType:'json',
+                    success:function (data) {
+                        _this.list=data;
+                    }
+                })
+            }
+        }
+    })
+</script>
+
+
+</html>
